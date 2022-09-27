@@ -1,10 +1,7 @@
 const { template } = require('@babel/core')
 
 function fillStartWord(startWord, word) {
-  if((startWord == null || undefined) || (word == null || undefined)){
-      return undefined;
-  }else if((startWord || word) != null || undefined){
-      return startWord+word;
-  } 
+  if (word === undefined || word === null) return undefined
+  return word?.startsWith(startWord) ? word : `${startWord}${word}`
 }
 module.exports = fillStartWord
